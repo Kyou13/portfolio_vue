@@ -1,6 +1,6 @@
 <template>
   <div>
-  <h3>Biography</h3>
+  <h2>Biography</h2>
   <div class="box-content about">
     <ul>
       <li v-for="item in biography">{{ item.year }}-{{ item.month }}：{{ item.title }}</li>

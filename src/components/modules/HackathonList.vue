@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Hackathon</h3>
+    <h2>Hackathon</h2>
     <div class="box-content hackathon">
       <table>
         <tbody>

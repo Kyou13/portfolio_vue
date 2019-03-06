@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Skills</h3>
+    <h2>Skills</h2>
     <div class="box-content skills">
       <skill v-bind:skill="skills.Backend"></skill>
       <skill v-bind:skill="skills.Frontend"></skill>

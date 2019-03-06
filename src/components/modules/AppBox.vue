@@ -38,7 +38,8 @@
 <style scoped>
   .work-box{
     display: inline-block;
-    width: 210px;
+    vertical-align: middle;
+    width: 220px;
     height: 230px;
     margin: 10px;
     border: solid #2c3e50 2px;
@@ -47,8 +48,9 @@
     border-radius: 5px;
   }
   img{
-    width:100px;
-    background-size: cover;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
   }
   button{
     /* buttonのデフォルトデザインリセット */
@@ -73,7 +75,7 @@
     border: solid #2c3e50 1px;
     margin-right: 2px;
     padding: 0.25em;
-    background: #dbebf8;
+    background: #beb5fc;
     border-radius: 15px 0px 0px 15px;
   }
   ul li:before{
