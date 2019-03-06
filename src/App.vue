@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <head-comp></head-comp>
-    <router-view/>
+    <transition mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -35,5 +37,11 @@
   .box-content{
     background-color: rgba(225,225,225,0.5);
     padding: 15px;
+  }
+  .v-enter-active, .v-leave-active {
+    transition: opacity 0.5s;
+  }
+  .v-enter, .v-leave-to {
+    opacity: 0;
   }
 </style>

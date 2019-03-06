@@ -1,6 +1,6 @@
 <template>
   <div class="skill-box">
-    <h3>{{ skill.title }}</h3>
+    <h3 >{{ skill.title }}</h3>
       <table>
         <tbody>
           <tr v-for="item in skill.skill">
@@ -28,12 +28,12 @@
   .skill-box{
     display: inline-block;
     width: 350px;
-    height: 250px;
+    height: 230px;
     margin: 10px;
     border: solid #2c3e50 2px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
-    border-radius: 15px;
+    border-radius: 5px;
   }
   table{
     text-align: left;
@@ -42,25 +42,25 @@
   td:not(:last-of-type){
     padding-right: 20px;
   }
-.star-rating {
-  position: relative;
-  width: 5em;
-  height: 1em;
-  font-size: 15px;
-}
-.star-rating-front {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  color: #ffcc33;
-  z-index: 1;
-}
-.star-rating-back {
-  color: #ccc;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+  .star-rating {
+    position: relative;
+    width: 5em;
+    height: 1em;
+    font-size: 15px;
+  }
+  .star-rating-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: #ffcc33;
+    z-index: 1;
+  }
+  .star-rating-back {
+    color: #ccc;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 </style>
 

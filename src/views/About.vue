@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <page-title></page-title>
+    <h1>{{ title }}</h1>
     <biography-list></biography-list>
     <skill-list></skill-list>
     <hackathon-list></hackathon-list>
@@ -24,7 +24,13 @@
     },
     created: function () {
       this.$store.dispatch('tabAction', 1)
+    },
+    computed: {
+      ...mapGetters('About',{
+        'title': 'getTitle'
+      })
     }
+
   }
 </script>
 <style scoped>

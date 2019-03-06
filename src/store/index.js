@@ -20,6 +20,7 @@ const PageTitle = {
 const About = {
   namespaced: true,
   state: {
+    title: 'About',
     biography:[
       {
         year: "2016",
@@ -111,6 +112,12 @@ const About = {
             rate: 3
           },
           {
+            name: "Pandas",
+            year: false,
+            date: 5,
+            rate: 2
+          },
+          {
             name: "Scikit-learn",
             year: false,
             date: 3,
@@ -190,6 +197,9 @@ const About = {
     },
     getHackathon(state){
       return state.hackathon
+    },
+    getTitle(state){
+      return state.title
     }
   }
 }
@@ -197,50 +207,148 @@ const About = {
 const Works = {
   namespaced: true,
   state: {
+    title: 'Works',
+    isShowModal: false,
+    modalIndex: 0,
     intern:[
       {
         title: "AAA",
-        content: {
           skill: "JAVA",
           description: "JAVA",
           date: "11/11",
-        },
       },
       {
         title: "BBB",
-        content: {
           skill: "JAVA",
           description: "JAVA",
           date: "11/11",
-        },
       }
     ],
     apps:[
       {
-        title: "AAA",
-        // img:
-        content: {
-          skill: "JAVA",
-          description: "JAVA",
-          date: "11/11",
-        },
+        title: "MICHIKUSA",
+        WorkImg: require("@/assets/profile.png"),
+        skills: ["Rails", 'Python(Doc2Vec)'],
+        description: "JAVA",
+        date: "11/11",
       },
       {
-        title: "BBB",
-        content: {
-          skill: "JAVA",
-          description: "JAVA",
-          date: "11/11",
-        },
-      }
+        title: "HELLO",
+        WorkImg: require("@/assets/profile.png"),
+        skills: ["JAVA"],
+        description: "JAVA",
+        date: "11/11",
+      },
     ]
   },
+  mutations: {
+    show(state){
+      state.isShowModal = true
+    },
+    hide(state){
+      state.isShowModal = false
+    },
+    setIndex(state, index){
+      state.modalIndex = index
+    }
+  },
+  actions: {
+    showModal({commit}, index){
+      commit('setIndex', index)
+      commit('show')
+    },
+    hideModal({commit}){
+      commit('hide')
+    }
+  },
   getters: {
-    getIntern(state){
+    getInterns(state){
       return state.intern
     },
     getApps(state){
       return state.apps
+    },
+    getApp: state => index => {
+      return state.apps[index]
+    },
+    getIntern: state => index => {
+      return state.intern[index]
+    },
+    getTitle(state){
+      return state.title
+    },
+    getShowModal(state){
+      return state.isShowModal
+    },
+    getAppsModal(state){
+      return state.apps[state.modalIndex]
+    },
+    getInternModal(state){
+      return state.intern[state.modalIndex]
+    }
+  }
+}
+
+const Contact = {
+  namespaced: true,
+  state: {
+    title: 'Contact',
+    profileImage: require("@/assets/profile.png"),
+    accounts: [
+      {
+        isStackActive: false,
+        link: 'https://github.com/Kyou13',
+        icon: [{
+          prefix: 'fab',
+          iconName: 'github-square',
+          className: 'fa-2x'
+        }]
+      },
+      {
+        isStackActive: false,
+        link: 'https://www.facebook.com/kyohei.saito.77',
+        icon: [{
+        prefix: 'fab',
+        iconName: 'facebook',
+        className: 'fa-2x'
+        }]
+      },
+      {
+        isStackActive: false,
+        link: 'https://www.instagram.com/kyoppygraphy/',
+        icon: [{
+        prefix: 'fab',
+        iconName: 'instagram',
+        className: 'fa-2x'
+        }]
+      },
+      {
+        isStackActive: true,
+        link: 'https://qiita.com/Kyou13',
+        icon: [
+          {
+            prefix: 'fas',
+            iconName: 'square',
+            className: 'fa-stack-2x'
+          },
+          {
+            prefix: 'fas',
+            iconName: 'search',
+            className: 'fa-stack-1x fa-inverse fa-2x'
+          }
+        ]
+      }
+    ]
+  },
+  getters: {
+    getProfileImg(state){
+      return state.profileImage
+    },
+    getTitle(state){
+      return state.title
+    },
+    getAccounts(state){
+      return state.accounts
     }
   }
 }
@@ -263,6 +371,7 @@ export default new Vuex.Store({
   modules: {
     PageTitle,
     About,
-    Works
+    Works,
+    Contact
   }
 })

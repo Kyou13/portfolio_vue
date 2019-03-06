@@ -1,32 +1,37 @@
 <template>
   <div class="container">
-    <page-title></page-title>
+    <h1> {{ title }} </h1>
     <div class="box-content">
-      <box-comp v-for="item in apps" :title="item.title" :content="item.content"></box-comp>
+      <app-box v-for="(item, index) in apps" :title="item.title" :WorkImg="item.WorkImg" :index="index"></app-box>
     </div>
-    <div class="box-content">
-      <box-comp v-for="item in intern" :title="item.title" :content="item.content"></box-comp>
-    </div>
+    <!--<div class="box-content">-->
+      <!--<box-comp v-for="item in intern" :title="item.title" :content="item.content"></box-comp>-->
+    <!--</div>-->
   </div>
 </template>
 <script>
   import PageTitle from "../components/modules/PageTitle";
-  import BoxComp from "../components/modules/BoxComp";
+  import AppBox from "../components/modules/AppBox";
+  import Modal from "../components/modules/Modal";
   import { mapGetters } from "vuex"
 
   export default {
     name: 'Works',
-    components: {
-      BoxComp,
-      PageTitle
+    data() {
+      return {
+        showModal: false
+      }
     },
-    created: function () {
-      this.$store.dispatch('tabAction', 2)
+    components: {
+      AppBox,
+      PageTitle,
+      Modal
     },
     computed: {
       ...mapGetters('Works',{
         'apps': 'getApps',
-        'intern': 'getIntern'
+        'intern': 'getIntern',
+        'title': 'getTitle'
       })
     }
   }
